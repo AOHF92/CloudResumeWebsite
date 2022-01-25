@@ -21,7 +21,7 @@ jobs:
       with:
         azcliversion: 2.0.72
         inlineScript: |
-          az storage blob upload-batch --account-name crstorage92 --destination '$web' --source frontend
+          az storage blob upload-batch --account-name crstorage92 --destination '$web' --source Frontend
     - name: Copy Function code files
       uses: Azure/cli@v1
       with:
