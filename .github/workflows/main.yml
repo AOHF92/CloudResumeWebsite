@@ -1,0 +1,42 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Deploy to blob storage
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the main branch
+  push:
+    branches: [ main ]
+#Logs in to Azure to upload the front end to your blob storage
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+    - name: Upload to blob storage
+      uses: Azure/cli@v1
+      with:
+        azcliversion: 2.0.72
+        inlineScript: |
+          az storage blob upload-batch --account-name crstorage92 --destination '$web' --source frontend
+    - name: Copy Function code files
+      uses: Azure/cli@v1
+      with:
+        inlineScript: |
+          az storage file upload --account-name crstorage92 --share-name getcounter --source ./backend/VisitorCounter/run.ps1 --path "site/wwwroot/VisitorCounter"
+          az storage file upload --account-name crstorage92 --share-name getcounter --source ./backend/VisitorCounter/function.json --path "site/wwwroot/VisitorCounter"
+    - name: Purge CDN Endpoint
+      uses: Azure/cli@v1
+      with: 
+        azcliversion: 2.0.72
+        inlineScript: |
+          az cdn endpoint purge --content-paths "/*" --resource-group CRWrg --profile-name CDNAzResume --name CDNAzResume --no-wait
+          
+#Azure logout
+    - name: logout
+      run: |
+            az logout
+    
