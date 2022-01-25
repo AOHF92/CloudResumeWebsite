@@ -7,7 +7,7 @@ fetch([apiUrl, appendUrl].join(''))
 		return response.json();
 	})
 	.then (response => {
-		console.log('Fetch succeeded to the function.');
+		console.log('Fetch succeeded.');
 		console.log(response);
 		count = response.VisitorCount;
 		document.getElementById('visitor').innerHTML = 'This page has been visited ' + count + ' times.';
