@@ -7,9 +7,10 @@ on:
   # Triggers the workflow on push or pull request events but only for the main branch and BackEnd
   push:
     branches: [ main ]
+    paths:
     - 'BackEnd/**'
 #Logs in to Azure to upload the front end to your blob storage
- jobs:
+jobs:
   build:
     runs-on: ubuntu-latest
     steps:
