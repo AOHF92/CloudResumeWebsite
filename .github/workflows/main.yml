@@ -32,7 +32,7 @@ jobs:
       with: 
         azcliversion: 2.0.72
         inlineScript: |
-          az cdn endpoint purge --content-paths "/*" --resource-group CRWrg --profile-name CDNAzResume --name CDNAzResume --no-wait
+          az cdn endpoint purge --content-paths "/*" --resource-group "CRWrg" --profile-name "CDNAzResume" --name "CDNAzResume" --no-wait
           
 #Azure logout
     - name: logout
