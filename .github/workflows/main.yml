@@ -13,16 +13,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - uses: azure/login@v1
+    - uses: azure/login@1.0.4
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
     - name: Upload to blob storage
-      uses: Azure/cli@v1
+      uses: Azure/cli@1.0.4
       with:
         inlineScript: |
           az storage blob upload-batch --account-name crstorage92 --destination '$web' --source FrontEnd
     - name: Copy Function code files
-      uses: Azure/cli@v1
+      uses: Azure/cli@1.0.4
       with:
         inlineScript: |
           az storage file upload --account-name crstorage92 --share-name getcounter9e8fda45327d --source ./BackEnd/VisitorCounter/run.ps1 --path "site/wwwroot/HttpTriggerforcrw"
@@ -30,9 +30,7 @@ jobs:
     - name: Purge CDN Endpoint
       uses: Azure/cli@v1
       with: 
-        azcliversion: 2.0.72
         inlineScript: |
-          az account set --subscription "9e908fbc-e1cb-4aac-b30b-79f662f6445f"
           az cdn endpoint purge --content-paths "/*" --resource-group "CRWrg" --profile-name "CDNAzResume" --name "CDNAzResume" --no-wait
           
 #Azure logout
