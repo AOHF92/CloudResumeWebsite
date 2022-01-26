@@ -4,9 +4,12 @@ name: Deploy to blob storage
 
 # Controls when the workflow will run
 on:
-  # Triggers the workflow on push or pull request events but only for the main branch
+  # Triggers the workflow on push or pull request events but only for the main branch for FrontEnd
   push:
     branches: [ main ]
+    paths:
+    - 'FrontEnd/**'
+    
 #Logs in to Azure to upload the front end to your blob storage
 jobs:
   build:
@@ -21,12 +24,6 @@ jobs:
       with:
         inlineScript: |
           az storage blob upload-batch --account-name crstorage92 --destination '$web' --source FrontEnd
-    - name: Copy Function code files
-      uses: Azure/cli@1.0.4
-      with:
-        inlineScript: |
-          az storage file upload --account-name crstorage92 --share-name getcounter9e8fda45327d --source ./BackEnd/VisitorCounter/run.ps1 --path "site/wwwroot/HttpTriggerforcrw"
-          az storage file upload --account-name crstorage92 --share-name getcounter9e8fda45327d --source ./BackEnd/VisitorCounter/function.json --path "site/wwwroot/HttpTriggerforcrw"
     - name: Purge CDN Endpoint
       uses: Azure/cli@v1
       with: 
