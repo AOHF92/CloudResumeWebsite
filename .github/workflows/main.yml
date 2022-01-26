@@ -25,8 +25,8 @@ jobs:
       uses: Azure/cli@v1
       with:
         inlineScript: |
-          az storage file upload --account-name crstorage92 --share-name getcounter9e8fda45327d --source ./BackEnd/VisitorCounter/run.ps1 --path "site/wwwroot/VisitorCounter"
-          az storage file upload --account-name crstorage92 --share-name getcounter9e8fda45327d --source ./BackEnd/VisitorCounter/function.json --path "site/wwwroot/VisitorCounter"
+          az storage file upload --account-name crstorage92 --share-name getcounter9e8fda45327d --source ./BackEnd/VisitorCounter/run.ps1 --path "site/wwwroot/HttpTriggerforcrw"
+          az storage file upload --account-name crstorage92 --share-name getcounter9e8fda45327d --source ./BackEnd/VisitorCounter/function.json --path "site/wwwroot/HttpTriggerforcrw"
     - name: Purge CDN Endpoint
       uses: Azure/cli@v1
       with: 
