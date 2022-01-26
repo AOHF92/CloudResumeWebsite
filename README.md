@@ -1,2 +1,3 @@
 # CloudResumeWebsite
-Repository for The Cloud Resume Challenge in Azure
+### Here you will find my solution to the Azure Cloud Resume Challenge.
+
