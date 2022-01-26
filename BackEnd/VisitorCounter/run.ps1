@@ -22,7 +22,7 @@ else {
     $visitorCount++
     Write-Host "New visitorCount: $visitorCount"
 
-    $responseObject =@{
+    $responseObject = @{
         VisitorCount = $visitorCount
     }
 
@@ -30,7 +30,7 @@ else {
 
     Push-OutputBinding -Name CosmosPost -Value @{
         id = $CosmosGet.id
-        visitorCount = $visitorCount
+        VisitorCount = $visitorCount
     }
 
     Push-OutputBinding -Name Response -Value ([HttpResponseContext]@{
