@@ -31,7 +31,7 @@ jobs:
       uses: Azure/cli@v1
       with: 
         inlineScript: |
-          az cdn endpoint purge --content-paths "/*" --resource-group "CRWrg" --profile-name "CDNAzResume" --name "CDNAzResume" --no-wait
+          az cdn endpoint purge --content-paths "/*" --resource-group "CRWrg" --profile-name "CDNAzResume" --name "CDNEAlexHernIT" --no-wait
           
 #Azure logout
     - name: logout
