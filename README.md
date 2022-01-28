@@ -3,13 +3,15 @@
 
  View my website [here](https://www.aohfcloudtech.com).
 
-![Diagram](images/CRWDiagram.png)
-
 ## Prerequisites
 - [GitHub Account](https://github.com/join)
 - [Azure Account](https://azure.microsoft.com/en-us/free)
 - [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli)
 
+
+## Cloud Resume Website Challange Diagram 
+
+![Diagram](images/CRWDiagram.png)
 
 ## Front End
 
