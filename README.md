@@ -3,6 +3,7 @@
 
  View my website [here](https://www.aohfcloudtech.com).
 
+![Diagram](/../images/CRWDiagram.png)
 
 ## Prerequisites
 - [GitHub Account](https://github.com/join)
@@ -24,3 +25,13 @@ The BackEnd consists of an [HTTP trigger using Azure Functions](https://docs.mic
 
 - [Create a Cosmos DB account via the command line](https://docs.microsoft.com/en-us/azure/cosmos-db/sql/cli-samples) or [from the portal](https://docs.microsoft.com/en-us/azure/cosmos-db/sql/create-cosmosdb-resources-portal).
 - For the Azure Function, I executed [these commands](CreateAzFunctionResource.txt) to deploy the resource through Azure CLI. As for the defining the functions, I used the Azure portal. You can find the function files [here](./BackEnd/VisitorCounter).
+- [How to retrieve a Cosmos DB Item with Functions Binding](https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-cosmosdb-v2-input?tabs=powershell#http-trigger-id-query-string-ps).
+- [How to write to a Cosmos DB item with Functions Binding](https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-cosmosdb-v2-output?tabs=powershell).
+- I enabled [Cross-Origin Resource Sharing (CORS)](https://docs.microsoft.com/en-us/azure/azure-functions/functions-how-to-use-azure-function-app-settings?tabs=portal#cors) for the Azure functions to allow the website to make an API Call. 
+
+## Testing your code
+For Best Practices, you should test your code before deploying it. Here's [how you can tests your functions with PowerShell](https://docs.microsoft.com/en-us/azure/azure-functions/functions-debug-powershell-local).
+
+## CI/CD Resources
+- You can find how to deploy a blob storage static site with GitHub Actions [here](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blobs-static-site-github-actions?tabs=userlevel).
+- You can also find how to deploy an Azure function to Azure with GitHub Actions [here](https://github.com/marketplace/actions/azure-functions-action)
