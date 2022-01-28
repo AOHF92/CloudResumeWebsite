@@ -3,7 +3,7 @@
 
  View my website [here](https://www.aohfcloudtech.com).
 
-![Diagram](/../images/CRWDiagram.png)
+![Diagram](images/CRWDiagram.png)
 
 ## Prerequisites
 - [GitHub Account](https://github.com/join)
