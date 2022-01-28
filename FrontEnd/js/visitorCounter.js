@@ -1,9 +1,8 @@
 
 const apiUrl = "https://getcounter.azurewebsites.net/api/HttpTriggerforcrw?code=";
 const appendUrl = "xSSWM4sojDKrguuFLh6EITzgm/fu7KFk/xxT5FYvJjDsRLkv2tzMxQ==";
-const OldVisitor = document.cookie;
-if (document.cookie != OldVisitor){
-	fetch([apiUrl, appendUrl].join(''))
+	
+fetch([apiUrl, appendUrl].join(''))
 	.then(response => {
 		return response.json();
 	})
@@ -16,4 +15,3 @@ if (document.cookie != OldVisitor){
 	.catch(error => {
 		console.error('Fetch operation failed:', error);
 	});
-}
