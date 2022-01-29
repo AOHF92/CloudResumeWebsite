@@ -17,8 +17,8 @@
 
 In the FrontEnd folder you will find the resources (HTML,CSS,JavaScript) of the website. The website is static and has a visitor Counter. The Visitor Counter fetches the data via an API call to an Azure Function.
 
-- I am not a designer at all so I used this [template](https://www.themezy.com/free-website-templates/151-ceevee-free-responsive-website-template) to create my site.
-- I'm also not a Javascript dev, however I used this [article](https://www.digitalocean.com/community/tutorials/how-to-use-the-javascript-fetch-api-to-get-data) as reference in making a simple API call.
+- I used this [template](https://www.themezy.com/free-website-templates/151-ceevee-free-responsive-website-template) to create my site.
+- I used this [article](https://www.digitalocean.com/community/tutorials/how-to-use-the-javascript-fetch-api-to-get-data) as reference in making a simple API call.
 - I used the following powershell scripts: [BuildAzResources.ps1](BuildAzResources.ps1) and [NewAzCdnProfileandEndpoint.ps1](NewAzCdnProfileandEndpoint.ps1) to deploy Azure Resources needed to host the website.
 
 ## Back End
