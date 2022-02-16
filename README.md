@@ -1,5 +1,5 @@
 # Cloud Resume Website Challenge
- Here you will find my solution to the Azure Cloud Resume Challenge.
+ Here is my approach to the Azure Cloud Resume Challenge.
 
  View my website [here](https://www.aohfcloudtech.com).
 
