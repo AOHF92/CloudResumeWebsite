@@ -11,7 +11,7 @@
 
 ## Cloud Resume Website Challange Diagram 
 
-![Diagram](images/CRWDiagram.png)
+![Diagram](images/Diagram.png)
 
 ## Front End
 
