@@ -23,7 +23,7 @@ jobs:
       uses: Azure/cli@1.0.4
       with:
         inlineScript: |
-          az storage blob upload-batch --account-name crstorage92 --destination '$web' --source FrontEnd
+          az storage blob upload-batch --account-name crstorage92 --destination '$web' --source FrontEnd --overwrite
     - name: Purge CDN Endpoint
       uses: Azure/cli@v1
       with: 
