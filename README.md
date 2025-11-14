@@ -3,7 +3,7 @@
 
  View my website [here](https://www.aohfcloudtech.com).
 
-## Cloud Resume Website Challange Diagram 
+## Cloud Resume Website Challenge Diagram 
 
 ![Diagram](images/Diagram.png)
 
