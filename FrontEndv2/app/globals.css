@@ -1,0 +1,448 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* Hardware-inspired monochrome theme with precision color tokens */
+:root {
+  /* Base colors - monochrome foundation */
+  --background: oklch(0.98 0 0);
+  --foreground: oklch(0.15 0 0);
+
+  /* Surface colors - subtle layers */
+  --card: oklch(0.96 0 0);
+  --card-foreground: oklch(0.15 0 0);
+  --popover: oklch(0.98 0 0);
+  --popover-foreground: oklch(0.15 0 0);
+
+  /* Primary - deep black for emphasis */
+  --primary: oklch(0.15 0 0);
+  --primary-foreground: oklch(0.98 0 0);
+
+  /* Secondary - warm grey */
+  --secondary: oklch(0.88 0 0);
+  --secondary-foreground: oklch(0.15 0 0);
+
+  /* Muted - mid grey */
+  --muted: oklch(0.92 0 0);
+  --muted-foreground: oklch(0.45 0 0);
+
+  /* Accent - constrained orange (TE signature) */
+  --accent: oklch(0.65 0.18 45);
+  --accent-foreground: oklch(0.15 0 0);
+
+  /* Borders - precise lines */
+  --border: oklch(0.2 0 0);
+  --input: oklch(0.88 0 0);
+  --ring: oklch(0.15 0 0);
+
+  /* Hardware constraint: 0 border radius */
+  --radius: 0rem;
+
+  /* Grid system tokens */
+  --grid-unit: 8px;
+  --column-width: 64px;
+  --gutter: 24px;
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.577 0.245 27.325);
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+}
+
+.dark {
+  --background: oklch(0.12 0 0);
+  --foreground: oklch(0.95 0 0);
+  --card: oklch(0.15 0 0);
+  --card-foreground: oklch(0.95 0 0);
+  --popover: oklch(0.12 0 0);
+  --popover-foreground: oklch(0.95 0 0);
+  --primary: oklch(0.95 0 0);
+  --primary-foreground: oklch(0.12 0 0);
+  --secondary: oklch(0.22 0 0);
+  --secondary-foreground: oklch(0.95 0 0);
+  --muted: oklch(0.18 0 0);
+  --muted-foreground: oklch(0.6 0 0);
+  --accent: oklch(0.65 0.18 45);
+  --accent-foreground: oklch(0.95 0 0);
+  --border: oklch(0.85 0 0);
+  --input: oklch(0.22 0 0);
+  --ring: oklch(0.95 0 0);
+  --destructive: oklch(0.396 0.141 25.723);
+  --destructive-foreground: oklch(0.637 0.237 25.331);
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(0.269 0 0);
+  --sidebar-ring: oklch(0.439 0 0);
+}
+
+@theme inline {
+  --font-sans: "Geist", "Geist Fallback";
+  --font-mono: "Geist Mono", "Geist Mono Fallback";
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground font-mono;
+  }
+
+  /* Swiss grid system foundation */
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: var(--gutter);
+  }
+
+  /* Hardware constraint typography - monospace only */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-mono font-bold tracking-tight;
+  }
+
+  /* Precision spacing using 8px grid */
+  .space-grid-1 {
+    margin: calc(var(--grid-unit) * 1);
+  }
+  .space-grid-2 {
+    margin: calc(var(--grid-unit) * 2);
+  }
+  .space-grid-3 {
+    margin: calc(var(--grid-unit) * 3);
+  }
+  .space-grid-4 {
+    margin: calc(var(--grid-unit) * 4);
+  }
+
+  /* Hardware-style button system with plastic material and shadow depth */
+  .hardware-button {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    background: linear-gradient(180deg, oklch(0.96 0 0) 0%, oklch(0.92 0 0) 100%);
+    border: 2px solid oklch(0.2 0 0);
+    border-radius: 8px;
+    color: oklch(0.15 0 0);
+    cursor: pointer;
+    transition: all 150ms cubic-bezier(0.34, 1.56, 0.64, 1);
+
+    /* Lighter drop shadow with 4px offset using #b0b0aa */
+    box-shadow: 0 1px 0 0 oklch(1 0 0), 0 4px 0 0 #b0b0aa, 0 6px 10px -2px rgba(176, 176, 170, 0.4);
+
+    /* Inset highlight for plastic material */
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 2px 2px auto 2px;
+      height: 40%;
+      border-radius: 6px;
+      background: linear-gradient(180deg, oklch(1 0 0 / 0.6) 0%, oklch(1 0 0 / 0) 100%);
+      pointer-events: none;
+    }
+
+    /* Spring physics on hover */
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 1px 0 0 oklch(1 0 0), 0 6px 0 0 #b0b0aa, 0 8px 14px -2px rgba(176, 176, 170, 0.5);
+    }
+
+    /* Spring physics on press with lighter shadow */
+    &:active {
+      transform: translateY(4px);
+      box-shadow: 0 1px 0 0 oklch(1 0 0), 0 0px 0 0 #b0b0aa, 0 1px 4px -2px rgba(176, 176, 170, 0.3);
+      transition: all 50ms cubic-bezier(0.4, 0, 1, 1);
+    }
+  }
+
+  .hardware-button-large {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 24px;
+    background: linear-gradient(180deg, oklch(0.96 0 0) 0%, oklch(0.92 0 0) 100%);
+    border: 2px solid oklch(0.2 0 0);
+    border-radius: 8px;
+    color: oklch(0.15 0 0);
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    cursor: pointer;
+    transition: all 150ms cubic-bezier(0.34, 1.56, 0.64, 1);
+
+    /* Lighter drop shadow with 4px offset using #b0b0aa */
+    box-shadow: 0 1px 0 0 oklch(1 0 0), 0 4px 0 0 #b0b0aa, 0 6px 10px -2px rgba(176, 176, 170, 0.4);
+
+    /* Inset highlight for plastic material */
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 2px 2px auto 2px;
+      height: 40%;
+      border-radius: 6px;
+      background: linear-gradient(180deg, oklch(1 0 0 / 0.6) 0%, oklch(1 0 0 / 0) 100%);
+      pointer-events: none;
+    }
+
+    /* Spring physics on hover */
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 1px 0 0 oklch(1 0 0), 0 6px 0 0 #b0b0aa, 0 8px 14px -2px rgba(176, 176, 170, 0.5);
+    }
+
+    /* Spring physics on press with lighter shadow */
+    &:active {
+      transform: translateY(4px);
+      box-shadow: 0 1px 0 0 oklch(1 0 0), 0 0px 0 0 #b0b0aa, 0 1px 4px -2px rgba(176, 176, 170, 0.3);
+      transition: all 50ms cubic-bezier(0.4, 0, 1, 1);
+    }
+  }
+
+  /* Signal detector widget styles */
+  .signal-detector {
+    width: 100%;
+    max-width: 320px;
+    padding: 12px;
+    background: linear-gradient(180deg, oklch(0.96 0 0) 0%, oklch(0.92 0 0) 100%);
+    border: 2px solid oklch(0.2 0 0);
+    border-radius: 8px;
+    box-shadow: 0 1px 0 0 oklch(1 0 0), 0 4px 0 0 #b0b0aa, 0 6px 10px -2px rgba(176, 176, 170, 0.4);
+
+    /* Inset highlight for plastic housing */
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 2px 2px auto 2px;
+      height: 30%;
+      border-radius: 6px;
+      background: linear-gradient(180deg, oklch(1 0 0 / 0.4) 0%, oklch(1 0 0 / 0) 100%);
+      pointer-events: none;
+    }
+  }
+
+  /* Added screen tint overlays for LOCKED vs NOISY states */
+
+  /* LOCKED state - warmer red/orange tint with stronger glow */
+  .screen-tint-locked {
+    opacity: 0.5;
+    background: radial-gradient(ellipse at center, oklch(0.65 0.18 45 / 0.8) 0%, transparent 80%);
+    box-shadow: inset 0 0 60px oklch(0.65 0.18 45 / 0.7);
+  }
+
+  /* NOISY state - cooler/darker with subtle grain texture */
+  .screen-tint-noisy {
+    opacity: 0.2;
+    background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        oklch(0 0 0 / 0.03) 2px,
+        oklch(0 0 0 / 0.03) 4px
+      ), oklch(0.1 0.02 240 / 0.15);
+  }
+
+  /* Flashlight overlay system */
+  .flashlight-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    pointer-events: none;
+
+    /* Subtle vignette base layer (always present when lights off) */
+    background: radial-gradient(
+      circle 180px at var(--x) var(--y),
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 0.92) 70%,
+      rgba(0, 0, 0, 0.98) 100%
+    );
+
+    transition: opacity 0.3s ease;
+  }
+
+  /* Adjustable spotlight parameters */
+  /* --x and --y: spotlight position (updated via JS) */
+  /* Circle size: 180px = spotlight radius */
+  /* Darkness: 0.92 at 70% = strong darkness outside spotlight */
+  /* Edge darkness: 0.98 at 100% = nearly black at edges */
+
+  @media (prefers-reduced-motion: reduce) {
+    .flashlight-overlay {
+      transition: none;
+    }
+  }
+
+  /* Added Decora-style rocker light switch plate styles */
+
+  /* Switch plate container - hardware card with bevel and inset shadow */
+  .light-switch-plate {
+    position: relative;
+    width: 140px;
+    padding: 16px;
+    background: linear-gradient(135deg, oklch(0.94 0 0) 0%, oklch(0.89 0 0) 100%);
+    border: 2px solid oklch(0.75 0 0);
+    border-radius: 8px;
+    box-shadow: inset 0 1px 2px oklch(1 0 0 / 0.8), inset 0 -1px 2px oklch(0 0 0 / 0.1), 0 2px 4px oklch(0 0 0 / 0.15);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+
+  /* LIGHTS label above switch */
+  .light-switch-label {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: oklch(0.5 0 0);
+  }
+
+  /* Switch container - houses the rocker mechanism */
+  .light-switch-container {
+    position: relative;
+    width: 80px;
+    height: 120px;
+    background: linear-gradient(180deg, oklch(0.25 0 0) 0%, oklch(0.2 0 0) 100%);
+    border: 1px solid oklch(0.15 0 0);
+    border-radius: 4px;
+    box-shadow: inset 0 2px 6px oklch(0 0 0 / 0.5), 0 1px 0 oklch(1 0 0 / 0.1);
+    cursor: pointer;
+    overflow: hidden;
+
+    /* Subtle focus ring */
+    &:focus-visible {
+      outline: 2px solid oklch(0.15 0 0);
+      outline-offset: 2px;
+    }
+  }
+
+  /* Rocker switch - the moving part */
+  .light-switch-rocker {
+    position: absolute;
+    inset: 4px;
+    background: linear-gradient(180deg, oklch(0.96 0 0) 0%, oklch(0.88 0 0) 100%);
+    border-radius: 3px;
+    transition: transform 200ms cubic-bezier(0.34, 1.56, 0.64, 1);
+    display: flex;
+    flex-direction: column;
+
+    /* Soft bevel effect on rocker */
+    box-shadow: 0 2px 4px oklch(0 0 0 / 0.2), inset 0 1px 0 oklch(1 0 0 / 0.7), inset 0 -1px 0 oklch(0 0 0 / 0.15);
+  }
+
+  /* Rocker top and bottom halves for pressing effect */
+  .rocker-top,
+  .rocker-bottom {
+    flex: 1;
+    position: relative;
+
+    /* Highlight gradient for plastic material */
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: 2px;
+      background: linear-gradient(180deg, oklch(1 0 0 / 0.4) 0%, oklch(1 0 0 / 0) 50%, oklch(0 0 0 / 0.05) 100%);
+      pointer-events: none;
+    }
+  }
+
+  /* UP position - lights ON */
+  .rocker-up {
+    transform: perspective(200px) rotateX(-8deg);
+    transform-origin: center bottom;
+  }
+
+  /* DOWN position - lights OFF */
+  .rocker-down {
+    transform: perspective(200px) rotateX(8deg);
+    transform-origin: center top;
+  }
+
+  /* LED indicator at bottom of plate */
+  .light-switch-led {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    transition: all 300ms ease;
+    margin-top: 4px;
+  }
+
+  /* LED active state - glowing red when lights are OFF */
+  .led-active {
+    background: oklch(0.65 0.18 45);
+    box-shadow: 0 0 8px oklch(0.65 0.18 45), 0 0 12px oklch(0.65 0.18 45 / 0.6), inset 0 1px 2px oklch(1 0 0 / 0.3);
+  }
+
+  /* LED inactive state - dim when lights are ON */
+  .led-inactive {
+    background: oklch(0.3 0.02 45 / 0.2);
+    box-shadow: inset 0 1px 1px oklch(0 0 0 / 0.3);
+  }
+}
