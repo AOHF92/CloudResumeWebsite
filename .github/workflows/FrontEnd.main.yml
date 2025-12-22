@@ -9,6 +9,7 @@ on:
     branches: [ main ]
     paths:
     - 'FrontEndv2/**'
+    - '.github/workflows/**'
     
 #Logs in to Azure to upload the front end to your blob storage
 jobs:
