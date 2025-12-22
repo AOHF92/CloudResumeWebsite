@@ -8,7 +8,7 @@ on:
   push:
     branches: [ main ]
     paths:
-    - 'FrontEnd/**'
+    - 'FrontEndv2/**'
     
 #Logs in to Azure to upload the front end to your blob storage
 jobs:
@@ -19,11 +19,21 @@ jobs:
     - uses: azure/login@v1.4.3
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
+    - name: Setup Node
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+    - name: Install dependencies
+      working-directory: FrontEndv2
+      run: npm ci
+    - name: Build frontend
+      working-directory: FrontEndv2
+      run: npm run build  
     - name: Upload to blob storage
       uses: Azure/cli@1.0.4
       with:
         inlineScript: |
-          az storage blob upload-batch --account-name crstorage92 --destination '$web' --source FrontEnd --overwrite
+          az storage blob upload-batch --account-name crstorage92 --destination '$web' --source FrontEndv2/out --overwrite
     - name: Purge CDN Endpoint
       uses: Azure/cli@v1
       with: 
