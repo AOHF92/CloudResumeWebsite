@@ -37,7 +37,7 @@ export default function Resume() {
         <div className="max-w-7xl mx-auto px-6 py-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
             <div className="col-span-1 lg:col-span-4">
-              <h1 className="text-5xl md:text-7xl font-bold uppercase tracking-tighter mb-2 text-center">Alexis Hernandez</h1>
+              <h1 className="text-5xl md:text-7xl font-bold uppercase tracking-tighter mb-2 text-center">Alexis Hernández</h1>
               <p className="text-base text-muted-foreground uppercase tracking-wider">
                 IT Professional / Microsoft 365 & Azure
               </p>
