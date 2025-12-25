@@ -2,7 +2,11 @@
 
 import { useEffect, useRef, useState } from "react"
 
-export function SignalDetector() {
+interface SignalDetectorProps {
+  onTuneChange?: (value: number) => void
+}
+
+export function SignalDetector({ onTuneChange }: SignalDetectorProps = {}) {
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const [tuneValue, setTuneValue] = useState(0)
   const [isLocked, setIsLocked] = useState(false)
@@ -36,7 +40,8 @@ export function SignalDetector() {
 
   useEffect(() => {
     setIsLocked(tuneValue >= LOCK_THRESHOLD)
-  }, [tuneValue])
+    onTuneChange?.(tuneValue)
+  }, [tuneValue, onTuneChange])
 
   useEffect(() => {
     const canvas = canvasRef.current
