@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react"
 import { createPortal } from "react-dom"
 
-export function LightsToggle() {
+export function LightsToggle({ tuneValue = 100 }: { tuneValue?: number }) {
   const [lightsOn, setLightsOn] = useState(true)
 
   // Persist state to localStorage
@@ -39,12 +39,12 @@ export function LightsToggle() {
         {/* LED indicator at bottom of plate */}
         <div className={`light-switch-led ${!lightsOn ? "led-active" : "led-inactive"}`} />
       </div>
-      <AmbientOverlay active={!lightsOn} />
+      <AmbientOverlay active={!lightsOn} tuneValue={tuneValue} />
     </>
   )
 }
 
-function AmbientOverlay({ active }: { active: boolean }) {
+function AmbientOverlay({ active, tuneValue = 100 }: { active: boolean; tuneValue?: number }) {
   const [isMounted, setIsMounted] = useState(false)
 
   useEffect(() => {
@@ -54,7 +54,19 @@ function AmbientOverlay({ active }: { active: boolean }) {
   if (!active) return null
   if (!isMounted) return null
 
-  const overlayElement = <div id="ambient-overlay" className="ambient-overlay" />
+  // tuneValue 0 (noisy) → intensity 1.0 (strongest)
+  // tuneValue 100 (locked) → intensity 0.5 (calmer)
+  const intensity = 1 - (tuneValue / 100) * 0.5
+
+  const overlayElement = (
+    <div
+      id="ambient-overlay"
+      className="ambient-overlay"
+      style={{
+        opacity: intensity,
+      }}
+    />
+  )
 
   return createPortal(overlayElement, document.body)
 }
