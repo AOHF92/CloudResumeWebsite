@@ -36,7 +36,7 @@ export function ReceiptPrinter() {
       {/* PRINT CARD BUTTON - styled to match hardware buttons */}
       <button
         onClick={() => setShowReceipt(!showReceipt)}
-        className="hardware-button-large inline-flex items-center gap-2 mt-20 border-0"
+        className="hardware-button-large inline-flex items-center gap-2 mt-20 border-card border"
       >
         <svg
           className="h-4 w-4 text-popover-foreground"
