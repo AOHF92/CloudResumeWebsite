@@ -9,6 +9,7 @@ export default function Resume() {
   const [visitorCount, setVisitorCount] = useState<number | null>(null)
   const [isLoading, setIsLoading] = useState(true)
   const [blurAmount, setBlurAmount] = useState(0)
+  const [tuneValue, setTuneValue] = useState(100)
 
   useEffect(() => {
     const apiUrl = "https://getcounter.azurewebsites.net/api/HttpTriggerforcrw?code="
@@ -29,6 +30,7 @@ export default function Resume() {
   const handleTuneChange = (tuneValue: number) => {
     const blur = ((100 - tuneValue) / 100) * 1.5
     setBlurAmount(blur)
+    setTuneValue(tuneValue)
   }
 
   return (
@@ -37,13 +39,15 @@ export default function Resume() {
         <div className="max-w-7xl mx-auto px-6 py-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
             <div className="col-span-1 lg:col-span-4">
-              <h1 className="text-5xl md:text-7xl font-bold uppercase tracking-tighter mb-2 text-center">Alexis Hernández</h1>
+              <h1 className="text-5xl md:text-7xl font-bold uppercase tracking-tighter mb-2 text-center">
+                Alexis Hernandez
+              </h1>
               <p className="text-base text-muted-foreground uppercase tracking-wider">
                 IT Professional / Microsoft 365 & Azure
               </p>
               <a
                 href="https://www.alexbuilds.cc/"
-                className="hardware-button inline-flex items-center border-0 my-0 mx-0 mt-4 gap-8 px-24 py-0 ml-14"
+                className="hardware-button inline-flex items-center my-0 mx-0 mt-4 gap-8 px-24 py-0 ml-14 border-card border"
               >
                 <span>←</span>
                 <span className="py-2.5 text-left px-0 mx-0 my-0"> Return to Portfolio </span>
@@ -54,7 +58,7 @@ export default function Resume() {
             </div>
             <div className="col-span-1 lg:col-span-5 flex flex-col gap-4 justify-start items-center lg:justify-center">
               <SignalDetector onTuneChange={handleTuneChange} />
-              <LightsToggle />
+              <LightsToggle tuneValue={tuneValue} />
             </div>
           </div>
         </div>
