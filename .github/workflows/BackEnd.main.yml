@@ -1,7 +1,5 @@
- # This is a basic workflow to help you get started with Actions
-
+# This is a basic workflow to help you get started with Actions
 name: Deploy BackEnd to blob storage
-
 # Controls when the workflow will run
 on:
   # Triggers the workflow on push or pull request events but only for the main branch and BackEnd
@@ -14,8 +12,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - uses: azure/login@v1
+    - uses: actions/checkout@v4
+    - uses: azure/login@v2
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
     - name: Copy Function code files
@@ -28,7 +26,7 @@ jobs:
       uses: Azure/cli@v1
       with: 
         inlineScript: |
-          az cdn endpoint purge --content-paths "/*" --resource-group "CRWrg" --profile-name "CDNAzResume" --name "CDNEAlexHernIT" --no-wait
+          az afd endpoint purge --content-paths "/*" --resource-group "CRWrg" --profile-name "CDNAzResume" --endpoint-name "CDNEAlexHernIT" --domains "www.aohfcloudtech.com" --no-wait
           
 #Azure logout
     - name: logout
